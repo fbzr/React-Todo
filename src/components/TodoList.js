@@ -3,10 +3,14 @@
 import React, { Component } from 'react'
 
 export default class TodoList extends Component {
+    constructor(props) {
+        super();
+        this.todos = props.todos;
+    }
     render() {
         return (
             <div>
-                TodoList
+                { this.todos.map(todo => <div>{todo.task}</div>) }
             </div>
         )
     }
