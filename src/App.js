@@ -29,7 +29,7 @@ class App extends React.Component {
   addTodo = newTask => {
     const newTodo = {
       task: newTask,
-      id: new Date(),
+      id: new Date().valueOf(),
       completed: false
     }
     
@@ -38,12 +38,23 @@ class App extends React.Component {
     })
   }
 
+  toggleStatus = (todoId) => {
+    this.setState({
+      todos: this.state.todos.map(todo => (
+        todo.id === todoId 
+        ? {...todo, completed: !todo.completed} 
+        : todo
+      ))
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoList todos={this.state.todos} />
+        <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos} />
         <TodoForm addTodo={this.addTodo} />
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
       </div>
     );
   }

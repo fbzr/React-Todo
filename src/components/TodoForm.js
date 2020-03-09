@@ -28,7 +28,6 @@ export default class TodoForm extends Component {
                 <input onChange={this.handleChange} value={this.state.newTask} type="text" name="newTask" id="newTask"/>
                 <button type='submit'>Add</button>
                 <button>Clear completed</button>
-                <pre>{JSON.stringify(this.state, null, 2)}</pre>
             </form>
         )
     }
