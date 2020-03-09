@@ -2,25 +2,14 @@ import React, { Fragment } from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import { Grid, Typography, CssBaseline } from '@material-ui/core';
-
-const todos = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-]
+import Search from './components/Search';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: []
+      todos: [],
+      searchText: ''
     }
   }
   // you will need a place to store your state in this component.
@@ -57,14 +46,22 @@ class App extends React.Component {
     })
   }
 
+  handleSearch = searchText => {
+    this.setState({
+      ...this.state,
+      searchText
+    })
+  }
+
   render() {
     return (
       <Fragment>
         <CssBaseline />
         <Grid style={{marginTop: '4%'}} container alignItems='center' direction='column'>
           <Typography variant='h2'>Todo List</Typography>
+          <Search handleSearch={this.handleSearch} />
           <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} />
-          <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos} />
+          <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos.filter(todo => todo.task.includes(this.state.searchText))} />
           {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
         </Grid>
       </Fragment>
