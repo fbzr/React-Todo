@@ -38,6 +38,14 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => (
+        todo.completed === false
+      ))
+    })
+  }
+
   toggleStatus = (todoId) => {
     this.setState({
       todos: this.state.todos.map(todo => (
@@ -53,7 +61,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List</h1>
         <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos} />
-        <TodoForm addTodo={this.addTodo} />
+        <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} />
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
       </div>
     );

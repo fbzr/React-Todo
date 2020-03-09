@@ -22,12 +22,17 @@ export default class TodoForm extends Component {
         })
     }
 
+    clearCompleted = e => {
+        e.preventDefault();
+        this.props.clearCompleted();
+    }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} value={this.state.newTask} type="text" name="newTask" id="newTask"/>
                 <button type='submit'>Add</button>
-                <button>Clear completed</button>
+                <button onClick={this.clearCompleted}>Clear completed</button>
             </form>
         )
     }
