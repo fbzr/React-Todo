@@ -10,7 +10,7 @@ export default class TodoList extends Component {
             <Grid container justify='center'>
                 { this.props.todos.length > 0 
                 ? this.props.todos.map(todo => <Todo key={todo.id} toggleStatus={this.props.toggleStatus} todo={todo} />) 
-                : <Typography>There is no task at the moment</Typography> }
+                : <Typography style={{marginTop: '8%'}}>There is no task at the moment</Typography> }
             </Grid>
         )
     }

@@ -46,7 +46,7 @@ export default class TodoForm extends Component {
                         <AddCircleOutlineIcon />
                     </IconButton>
                 </Grid>
-                <Button style={{width: '100%'}} onClick={this.clearCompleted}>Clear completed</Button>
+                <Button style={{width: '100%'}} onClick={this.clearCompleted}>Clear completed tasks</Button>
             </form>
         )
     }
