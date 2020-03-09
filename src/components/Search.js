@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TextField } from '@material-ui/core';
+import { TextField, Grid } from '@material-ui/core';
 
 export default class Search extends Component {
     handleChange = e => {
@@ -8,9 +8,9 @@ export default class Search extends Component {
 
     render() {
         return (
-            <div>
+            <Grid style={{marginBottom: '2%'}} container>
                 <TextField onChange={this.handleChange} label='Search for a task' />
-            </div>
+            </Grid>
         )
     }
 }

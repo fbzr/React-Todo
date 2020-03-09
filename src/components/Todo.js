@@ -4,7 +4,7 @@ import { Paper, withStyles, Typography } from '@material-ui/core';
 const TodoPaper = withStyles(theme => ({
     root: {
         background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.primary.light} 90%)`,
-        width: '400px',
+        width: '100%',
         padding: '2%',
         marginBottom: '2%'
     }

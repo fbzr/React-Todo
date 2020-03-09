@@ -12,9 +12,6 @@ class App extends React.Component {
       searchText: ''
     }
   }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
 
   addTodo = newTask => {
     const newTodo = {
@@ -57,10 +54,10 @@ class App extends React.Component {
     return (
       <Fragment>
         <CssBaseline />
-        <Grid style={{marginTop: '4%'}} container alignItems='center' direction='column'>
+        <Grid style={{margin: '4% auto', width: '400px'}} container alignItems='center' direction='column'>
           <Typography variant='h2'>Todo List</Typography>
-          <Search handleSearch={this.handleSearch} />
           <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} />
+          { this.state.todos.length > 0 && <Search handleSearch={this.handleSearch} /> }
           <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos.filter(todo => todo.task.includes(this.state.searchText))} />
           {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
         </Grid>
