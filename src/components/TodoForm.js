@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { TextField, Button, Grid, IconButton } from '@material-ui/core';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 export default class TodoForm extends Component {
     constructor() {
@@ -29,10 +31,14 @@ export default class TodoForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChange} value={this.state.newTask} type="text" name="newTask" id="newTask"/>
-                <button type='submit'>Add</button>
-                <button onClick={this.clearCompleted}>Clear completed</button>
+            <form style={{display: 'flex', flexWrap: 'wrap'}} onSubmit={this.handleSubmit}>
+                <Grid container>
+                    <TextField label='Add a task' onChange={this.handleChange} value={this.state.newTask} type="text" name="newTask" id="newTask"/>
+                    <IconButton disabled={this.state.newTask === ''} type='submit'>
+                        <AddCircleOutlineIcon />
+                    </IconButton>
+                </Grid>
+                <Button style={{width: '100%'}} onClick={this.clearCompleted}>Clear completed</Button>
             </form>
         )
     }

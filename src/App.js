@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import { Grid, Typography, CssBaseline } from '@material-ui/core';
 
 const todos = [
   {
@@ -58,12 +59,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Todo List</h1>
-        <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos} />
-        <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} />
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
-      </div>
+      <Fragment>
+        <CssBaseline />
+        <Grid container alignItems='center' direction='column'>
+          <Typography variant='h2'>Todo List</Typography>
+          <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} />
+          <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos} />
+          {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
+        </Grid>
+      </Fragment>
     );
   }
 }
