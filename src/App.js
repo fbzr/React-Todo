@@ -20,7 +20,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos
+      todos: []
     }
   }
   // you will need a place to store your state in this component.
@@ -61,7 +61,7 @@ class App extends React.Component {
     return (
       <Fragment>
         <CssBaseline />
-        <Grid container alignItems='center' direction='column'>
+        <Grid style={{marginTop: '4%'}} container alignItems='center' direction='column'>
           <Typography variant='h2'>Todo List</Typography>
           <TodoForm clearCompleted={this.clearCompleted} addTodo={this.addTodo} />
           <TodoList toggleStatus={this.toggleStatus} todos={this.state.todos} />

@@ -7,7 +7,7 @@ export default class TodoList extends Component {
     render() {
         return (
             <div>
-                { this.props.todos.map(todo => <Todo toggleStatus={this.props.toggleStatus} todo={todo} />) }  
+                { this.props.todos.map(todo => <Todo key={todo.id} toggleStatus={this.props.toggleStatus} todo={todo} />) }  
             </div>
         )
     }

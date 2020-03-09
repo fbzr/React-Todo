@@ -31,9 +31,17 @@ export default class TodoForm extends Component {
 
     render() {
         return (
-            <form style={{display: 'flex', flexWrap: 'wrap'}} onSubmit={this.handleSubmit}>
-                <Grid container>
-                    <TextField label='Add a task' onChange={this.handleChange} value={this.state.newTask} type="text" name="newTask" id="newTask"/>
+            <form onSubmit={this.handleSubmit} 
+            style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                marginBottom: '2%'
+            }}>
+                <Grid container wrap='nowrap'
+                style={{
+                    marginBottom: '2%'
+                }}>
+                    <TextField style={{width: '100%'}} label='Add a task' onChange={this.handleChange} value={this.state.newTask} type="text" name="newTask" id="newTask"/>
                     <IconButton disabled={this.state.newTask === ''} type='submit'>
                         <AddCircleOutlineIcon />
                     </IconButton>
