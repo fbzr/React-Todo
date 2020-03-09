@@ -1,6 +1,6 @@
 import React from 'react';
 
-const todo = [
+const todos = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: todo
+      todos
     }
   }
   // you will need a place to store your state in this component.
@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Todo List</h1>
       </div>
     );
   }
